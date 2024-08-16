@@ -34,7 +34,6 @@ while True:
 
     print(data)
 
-    # Use json.dumps() instead of json.dump()
     producer.produce(topic, json.dumps(data).encode('utf-8'), callback=delivery_report)
     producer.flush()
 

@@ -9,12 +9,12 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         conf = {
             'bootstrap.servers': 'localhost:9092',
-            'group.id': 'location_group',  # Ensure this matches your Kafka consumer group
+            'group.id': 'location_group',
             'auto.offset.reset': 'earliest'
         }
 
         consumer = Consumer(conf)
-        consumer.subscribe(['location_updates'])  # Ensure this matches your Kafka topic
+        consumer.subscribe(['location_updates'])  # Make sure this matches your Kafka topic
 
         try:
             while True:
